@@ -1,16 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneChenge : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] string Scene;
+    public GameObject Button;
+
+    public void OnClickButton()
     {
-        
+        ChengeScene();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChengeScene() 
     {
-        
+        SceneManager.LoadScene(Scene);
     }
 }
