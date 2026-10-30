@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //  入力情報から移動方向の単位ベクトルを算出
-        movement.Set(inputDirection.x, 0, inputDirection.y);
+        movement.Set(-inputDirection.x, 0, -inputDirection.y);
         movement.Normalize();
         
         //  歩きアニメーション
