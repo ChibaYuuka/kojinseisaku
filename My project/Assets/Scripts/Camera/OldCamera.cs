@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraController : MonoBehaviour
+public class OldCamera : MonoBehaviour
 {
     float rotationSpeed = 0.18f;
     float mouseX;

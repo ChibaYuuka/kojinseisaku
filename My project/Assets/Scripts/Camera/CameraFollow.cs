@@ -1,35 +1,45 @@
-using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    private Vector3 offset;
-    private float followSpeed = 5.0f;
+    [SerializeField] private float mouseSensitivity = 2f;
+    [SerializeField] private float minAngle = -30f;
+    [SerializeField] private float maxAngle = 60f;
 
-    private void Awake()
-    {
-        offset = transform.position - target.position;
-    }
+    private Vector3 offset;
+    private float rotationX;
+    private float rotationY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        offset = transform.position - target.position;
+
+        Vector3 angles = transform.eulerAngles;
+        rotationX = angles.x;
+        rotationY = angles.y;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        //マウス入力
+        float mouseX = Mouse.current.delta.x.ReadValue();
+        float mouseY = Mouse.current.delta.y.ReadValue();
 
-    private void LateUpdate()
-    {
-        //  ダイレクト移動
-        transform.position = target.position + offset;
-        //  遅延移動
-        //var targetposition = target.position + offset;
-        //transform.position = Vector3.Lerp(transform.position, targetposition, followSpeed * Time.deltaTime);
+        rotationY += mouseX * mouseSensitivity * Time.deltaTime;
+        rotationX -= mouseY * mouseSensitivity * Time.deltaTime;
+        rotationX = Mathf.Clamp(rotationX, minAngle, maxAngle);
+
+        //カメラの回転
+        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+        //カメラの位置
+        transform.position = target.position + transform.rotation * offset;
     }
 }
