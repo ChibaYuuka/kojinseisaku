@@ -951,6 +951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc203576a1e40cd46aad272b58531c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChenge
+  Scene: 
+  Button: {fileID: 1364963827}
 --- !u!1 &1856088986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,13 +1037,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1856088986}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1856088991}
+        m_TargetAssemblyTypeName: SceneChenge, Assembly-CSharp
+        m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1097,6 +1099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc203576a1e40cd46aad272b58531c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChenge
+  Scene: PlayScene
+  Button: {fileID: 1856088986}
 --- !u!1 &2028325938
 GameObject:
   m_ObjectHideFlags: 0
