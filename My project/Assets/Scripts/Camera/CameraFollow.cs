@@ -12,7 +12,6 @@ public class CameraFollow : MonoBehaviour
     private float rotationX;
     private float rotationY;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         offset = transform.position - target.position;
@@ -21,11 +20,26 @@ public class CameraFollow : MonoBehaviour
         rotationX = angles.x;
         rotationY = angles.y;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        SetCursorState(false);
     }
 
-    // Update is called once per frame
+    // カーソルの表示・非表示を切り替える
+    public void SetCursorState(bool showCursor)
+    {
+        if (showCursor)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+        }
+    }
+
     void Update()
     {
         //マウス入力

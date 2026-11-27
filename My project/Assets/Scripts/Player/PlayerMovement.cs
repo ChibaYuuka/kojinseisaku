@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movement;
     private Quaternion rotation;
 
-
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");

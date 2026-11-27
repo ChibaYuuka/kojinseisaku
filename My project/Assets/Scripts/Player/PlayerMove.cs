@@ -7,11 +7,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float speed = 0;
     private Vector2 inputDirection;
     private Vector3 movement;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
@@ -19,12 +14,6 @@ public class PlayerMove : MonoBehaviour
         movement.Normalize();
 
         var desiredForward = Vector3.RotateTowards(transform.forward, movement, speed * Time.deltaTime, 0f);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
